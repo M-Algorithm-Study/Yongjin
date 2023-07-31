@@ -1,5 +1,4 @@
 # 계단 오르기
-
 import sys
 sys.stdin = open('input.txt','r')
 
