@@ -16,8 +16,8 @@ def dfs(n, rst, last_num):
 
         if cnt_1 >= 1 and cnt_2 >=2: # 모음 최소 1개이상 자음 최소 2개이상 일때
             result.append(rst) # rst값을 result로 append
-            cnt_1 = 0 # 모음 카운트 초기화
-            cnt_2 = 0 # 자음 카운트 초기화
+            # cnt_1 = 0 # 모음 카운트 초기화
+            # cnt_2 = 0 # 자음 카운트 초기화
         return 
     for i in range(M):
         if visited[i] == 0 and i > last_num: # 방문하지 않았고 이전 인덱스보다 큰 경우에만
