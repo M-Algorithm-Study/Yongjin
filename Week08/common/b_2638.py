@@ -6,14 +6,13 @@ from collections import deque
 
 N, M = map(int,input().split())
 arr = [list(map(int,input().split())) for _ in range(N)]
-dx, dy = [0, 0, 1, -1], [1, -1, 0, 0]
 cnt = 0
 
 while True:
     q = deque()
     v = [[0 for _ in range(M)] for _ in range(N)]
     v[0][0] = 1
-    q.append([0, 0])
+    q.append((0, 0))
     while q:
         x, y = q.popleft()
         for di, dj in ((-1,0), (1,0), (0,1), (0,-1)):
@@ -23,12 +22,12 @@ while True:
                     arr[nx][ny] += 1
                 else:
                     v[nx][ny] = 1
-                    q.append([nx, ny])
+                    q.append((nx, ny))
     
     flag = 0
     for i in range(N):
         for j in range(M):
-            if arr[i][j] >=3:
+            if arr[i][j] > 2:
                 arr[i][j] = 0
             elif 0 < arr[i][j]:
                 flag = 1
@@ -61,19 +60,20 @@ while True:
 #                     q.append((ni,nj))
 #                     v[ni][nj] = 1
 #                 elif arr[ni][nj] == 1:
-#                     v[ni][nj] = v[ni][nj] + 1
+#                     v[ni][nj] += 1
 
 
 # while 1:
 #     v = [[0] * M for _ in range(N)] 
 #     bfs()
 #     cnt += 1
+#     cnt_1 = 0
 #     for i in range(N):
 #         for j in range(M):
 #             if v[i][j] >= 2:
 #                 arr[i][j] = 0
-    
-#     cnt_1 = 0
+
+
 #     for i in range(N):
 #         for j in range(M):
 #             if arr[i][j] == 0:
