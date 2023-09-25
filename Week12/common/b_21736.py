@@ -13,20 +13,20 @@ def bfs(si,sj):
     cnt = 0
     while q:
         x,y = q.popleft()
-        for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)):
+        for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)): # 범위 탐색
             nx, ny = x + dx , y + dy
-            if 0 <= nx < N and 0 <= ny < M and visited[nx][ny] == 0 :
-                if arr[nx][ny] == 'O':
-                    visited[nx][ny] = 1
-                    q.append((nx,ny))
+            if 0 <= nx < N and 0 <= ny < M and visited[nx][ny] == 0 : # 범위 확인
+                if arr[nx][ny] == 'O': # 빈공간이라면
+                    visited[nx][ny] = 1 # 방문처리
+                    q.append((nx,ny)) # q에 좌표 저장
 
-                elif arr[nx][ny] == 'X':
+                elif arr[nx][ny] == 'X': # 벽이라면 패스
                     pass
 
-                elif arr[nx][ny] == 'P':
-                    visited[nx][ny] = 1
-                    q.append((nx,ny))
-                    cnt += 1
+                elif arr[nx][ny] == 'P': # 사람을 찾으면
+                    visited[nx][ny] = 1 # 방문처리
+                    q.append((nx,ny)) # q에 좌표저장
+                    cnt += 1 # 카운트
 
 
 N, M = map(int,input().split()) 
@@ -36,7 +36,7 @@ visited = [[0]*M for _ in range(N)]
 
 for i in range(N):
     for j in range(M):
-        if arr[i][j] == 'I' :
+        if arr[i][j] == 'I' : # 도연이 위치 찾기
             bfs(i,j)
 
 
