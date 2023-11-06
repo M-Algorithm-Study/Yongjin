@@ -17,7 +17,6 @@ for i in range(e):
 
 queue = []
 heapq.heappush(queue,(0,1))
-print(graph)
 
 def prim():
     global answer
