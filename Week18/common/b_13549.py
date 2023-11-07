@@ -15,10 +15,10 @@ def bfs(s,e):
         c = q.popleft()
         if c == e:
             return v[e] - 1
-        for n in (c-1, c+1, c*2):
+        for n in (c*2,c-1, c+1):
             if 0 <= n < 200001 and v[n] == 0 :
                 if n == c*2:
-                    q.appendleft(n) # append만 하면 틀림
+                    q.append(n)
                     v[n] = v[c]
                 else:                 
                     q.append(n)
